@@ -54,6 +54,15 @@ At first, the program is going to print a line for each URL checked. This printe
 ## status.json
 The array of objects is these: \
 URL: this is just the URL \
-status code: HTTP status code, if there's an error it's null \
+status code: HTTP status code, if there's an error, it's null \
 success: this tells us if it worked or not (successful or failure) \
 error: if the URL wasn't successful, then it's null. 
+
+## Error Handling 
+If no files are provided when trying to run, the program will print a message on how the command is supposed to look. \
+If there are issues with the serialization of JSON, it will also make the program exit with an error message \
+### Warnings 
+Warnings can appear when trying to run the code if: \
+The program couldn't read the URLs from the file provided \
+The URL wasn't sent to the worker thread \
+A worker thread panics
