@@ -19,20 +19,41 @@ This is the format of the command
 ## This is what each [ ] does
 
 --file <sites.txt>: This specifies a text file containing a list of URLs to check, but it works only one URL per line. This references the example of 50 sites that I provided (sites.txt). You can use any valid website, but I provided examples since it was a requirement \
-suspicious link removed: You can use one or more urls as command line arguments \
+suspicious link removed: You can use one or more URLs as command line arguments \
 --workers N: the number of worker threads we are going to use \
---timeout S: the timeout for each http request \
---retries N: the amount of retries after each url failure  \
+--timeout S: the timeout for each HTTP request \
+--retries N: the amount of retries after each URL failure  \
 
 ## One URL at a time
-This command allows you to check one single url 
+This command allows you to check a single URL 
 ```bash
 ./target/release/website_checker [http://www.google.com](http://www.google.com)
 ```
 
 ## Multiple URLs
-This command allows you to check multiple urls at the same time
+This command allows you to check multiple URLs at the same time
 ```bash
 ./target/release/website_checker [http://www.google.com](http://www.google.com) [http://www.example.com](http://www.example.com) [http://www.rust-lang.org](http://www.rust-lang.org)
 ```
+## Get a URL from a file 
+This command allows you to get a URL from the sites.txt file I provided
+```bash
+./target/release/website_checker --file sites.txt
+```
+## You can also use a mix of both 
+```bash
+./target/release/website_checker --file sites.txt [http://www.twitter.com](http://www.twitter.com)
+```
+## Number of workers, timeouts, and retries
+```bash
+./target/release/website_checker --file sites.txt --workers 4 --timeout 10 --retries 3
+```
+## Output
+At first, the program is going to print a line for each URL checked. This printed line shows the URL, HTTP status code, and the response time. Then, after the URLs have been checked, the results are saved into a JSON file called status.json. The file contains a JSON array of objects; each object represents the status of each website.
 
+## status.json
+The array of objects is these: \
+URL: this is just the URL \
+status code: HTTP status code, if there's an error it's null \
+success: this tells us if it worked or not (successful or failure) \
+error: if the URL wasn't successful, then it's null. 
