@@ -1,10 +1,11 @@
 # Website Checker
 
-This Rust application checks the HTTP status of websites, providing live output and saving results to a JSON file.
+This Rust project application checks the HTTP status of websites. It also provides the  live output and saves the results in a JSON file.
 
 ## Build Instructions
 
-To build the application, use the following command:
+In order to run the application, use this command:
 
 ```bash
 cargo build --release
+#I 
