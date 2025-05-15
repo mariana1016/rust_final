@@ -8,4 +8,5 @@ In order to run the application, use this command:
 
 ```bash
 cargo build --release
-#I 
+```
+
