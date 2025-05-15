@@ -25,5 +25,14 @@ suspicious link removed: You can use one or more urls as command line arguments 
 --retries N: the amount of retries after each url failure  \
 
 ## One URL at a time
+This command allows you to check one single url 
+```bash
+./target/release/website_checker [http://www.google.com](http://www.google.com)
+```
 
+## Multiple URLs
+This command allows you to check multiple urls at the same time
+```bash
+./target/release/website_checker [http://www.google.com](http://www.google.com) [http://www.example.com](http://www.example.com) [http://www.rust-lang.org](http://www.rust-lang.org)
+```
 
